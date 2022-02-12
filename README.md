@@ -5,7 +5,7 @@ Browser Game
 - Each player puts different colored circles onto a grid
 - The grid has seven columns and six rows
 - Each player takes turns to drop their color into the grid
-- Number of Players: 2
+- Number of Players: 2, choose between playing with someone else or AI
 - Goal: Make four-in-a-row and stop their opponent from making four-in-a-row 
 - Ways to get Four in a Row: Make a vertical, horizontal, or diagonal row of four circles of the same color
 
