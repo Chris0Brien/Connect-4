@@ -14,8 +14,7 @@ Browser Game
  
     Credits:
 - None Yet
- 
-      For More Information 
+  
     Contact: email@
 - christopherwobrien30@gmail.com
   
