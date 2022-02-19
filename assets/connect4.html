@@ -1,81 +1,31 @@
 <!DOCTYPE html>
- <html lang="en">
-   <head>
-      <title>Connect-4</title>
-      <link rel="stylesheet" href="styles.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="connect.js"></script>
-    </head>
-   <body>
-    <h1>
-      CONNECT-FOUR
-  </h1>
-    <select id="modes">
-      <option value="pvp">PvP</option>
-      <option value="pvai">PvAI (coming soon)</option>
-    </select>
-    <button id="play">Play</button>
-    <div class="container">
-        <div class="row">
-          <div class="col-sm-12 lead">
-                <p> 
-                    Play against your frieds and try to win. 
-                </p> 
-                <h3>The current Player is: Player <span id="current-player">1</span></h3>
-                <h3 id="result"></h3>
-                <div class="grid">
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div class="taken"></div>
-                  <div class="taken"></div>
-                  <div class="taken"></div>
-                  <div class="taken"></div>
-                  <div class="taken"></div>
-                  <div class="taken"></div>
-                  <div class="taken"></div>
-                </div>
-            </div>
-        </div>
+<html lang="en">
+  <head>
+    <title>Connect-4</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <div class="game-mode">
+      <h1>CONNECT-FOUR</h1>
+
+      <select id="modes">
+        <option value="pvp">PvP</option>
+        <option value="pvai">PvAI (coming soon)</option>
+      </select>
+
+      <button id="play">Play</button>
+      <br />
+      <p id="pvp-mode">Play against your friends and try to win. 
+        <br>
+        It's <span id="player">red</span>'s turn!</p>
+      <p id="pvai-mode">Play against the AI and try to win. 
+        <br>
+        It's <span id="player">red</span>'s turn!</p>
     </div>
-</body>
+    <div id="connect4"></div>
+    <br>
+    <button id="restart">Restart</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="connect.js"></script>
+  </body>
 </html>
