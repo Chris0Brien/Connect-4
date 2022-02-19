@@ -35,3 +35,9 @@ body {
   .col.black {
     background-color: black;
   }
+
+  #pvai-mode {
+    position: absolute;
+    top: 6.2em;
+    left: 43%;
+  }

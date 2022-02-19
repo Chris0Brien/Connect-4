@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+function Game() {
     const connect4 = new Connect4('#connect4')
   
     connect4.onPlayerMove = function() {
@@ -9,4 +9,4 @@ $(document).ready(function() {
     $('#restart').click(function() {
       connect4.restart();
     })
-  });
+  };
