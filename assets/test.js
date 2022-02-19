@@ -10,12 +10,5 @@ window.onload = function(){
 document.getElementById('play').addEventListener('click', (event) => {
     event.preventDefault()
     let option = select.options[select.selectedIndex];
-    // console.log(option.value)
-    // if (option.value === 'pvp') {
-    //   pvpm.style.visibility = 'visible';
-    // } 
-    // else if (option.value === 'pvai') {
-    //   pvaim.style.visibility = 'visible';
-    //   }
-    option.value === "pvp" ? pvpm.style.visibility = 'visible': pvaim.style.visibility = 'visible';
+    option.value === "pvp" ? pvpm.style.visibility = 'visible' : pvaim.style.visibility = 'visible'; // ternary: example
 })
