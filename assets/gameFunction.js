@@ -1,5 +1,5 @@
 
-function Game() {
+function game() {
     const connect4 = new Connect4('#connect4')
   
     connect4.onPlayerMove = function() {

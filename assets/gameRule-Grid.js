@@ -1,16 +1,17 @@
-class Connect4 {
+// $ names means that jquery is being used in it
+class Connect4 { // build up Grid
   constructor(selector) {
     this.ROWS = 6;
     this.COLS = 7;
     this.player = "red";
-    this.selector = selector;
+    this.selector = selector; // keep track of the selector
     this.isGameOver = false;
     this.onPlayerMove = function () {};
     this.createGrid();
     this.setupEventListeners();
   }
 
-  createGrid() {
+  createGrid() { // filling the grid; if time swap rows and col
     const $board = $(this.selector);
     $board.empty();
     this.isGameOver = false;
@@ -19,9 +20,9 @@ class Connect4 {
       const $row = $("<div>").addClass("row");
       for (let col = 0; col < this.COLS; col++) {
         const $col = $("<div>")
-          .addClass("col empty")
-          .attr("data-col", col)
-          .attr("data-row", row);
+          .addClass("col empty") // keep track of available cells
+          .attr("data-col", col) // keep track of what col u are on
+          .attr("data-row", row); // keep track of what row u are on
         $row.append($col);
       }
       $board.append($row);
@@ -43,6 +44,7 @@ class Connect4 {
       return null;
     }
 
+// 
     $board.on("mouseenter", ".col.empty", function () {
       if (that.isGameOver) return;
       const col = $(this).data("col");
@@ -82,53 +84,49 @@ class Connect4 {
   checkForWinner(row, col) {
     const that = this;
 
-    function $getCell(i, j) {
-      return $(`.col[data-row='${i}'][data-col='${j}']`);
+    function $getCell(x, y) {
+      return $(`.col[data-row='${x}'][data-col='${y}']`);
     }
 
-    function checkDirection(direction) {
+    function checkWinDirection(direction) {
       let total = 0;
-      let i = row + direction.i;
-      let j = col + direction.j;
-      let $next = $getCell(i, j);
+      let x = row + direction.x;
+      let y = col + direction.y;
+      let $next = $getCell(x, y);
       while (
-        i >= 0 &&
-        i < that.ROWS &&
-        j >= 0 &&
-        j < that.COLS &&
+        x >= 0 &&
+        x < that.ROWS &&
+        y >= 0 &&
+        y < that.COLS &&
         $next.data("player") === that.player
       ) {
         total++;
-        i += direction.i;
-        j += direction.j;
-        $next = $getCell(i, j);
+        x += direction.x;
+        y += direction.y;
+        $next = $getCell(x, y);
       }
       return total;
     }
 
     function checkWin(directionA, directionB) {
-      const total = 1 + checkDirection(directionA) + checkDirection(directionB);
-      if (total >= 4) {
-        return that.player;
-      } else {
-        return null;
-      }
+      const total = 1 + checkWinDirection(directionA) + checkWinDirection(directionB);
+      return  (total >= 4) ? that.player : null;
     }
 
     function checkDiagonalBLtoTR() {
-      return checkWin({ i: 1, j: -1 }, { i: 1, j: 1 });
+      return checkWin({ x: 1, y: -1 }, { x: 1, y: 1 });
     }
 
     function checkDiagonalTLtoBR() {
-      return checkWin({ i: 1, j: 1 }, { i: -1, j: -1 });
+      return checkWin({ x: 1, y: 1 }, { x: -1, y: -1 });
     }
 
     function checkVerticals() {
-      return checkWin({ i: -1, j: 0 }, { i: 1, j: 0 });
+      return checkWin({ x: -1, y: 0 }, { x: 1, y: 0 });
     }
 
     function checkHorizontals() {
-      return checkWin({ i: 0, j: -1 }, { i: 0, j: 1 });
+      return checkWin({ x: 0, y: -1 }, { x: 0, y: 1 });
     }
 
     return (

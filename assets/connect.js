@@ -10,9 +10,10 @@ window.onload = function(){
 document.getElementById('play').addEventListener('click', (event) => {
     event.preventDefault()
     let option = select.options[select.selectedIndex];
-    pvpm.style.visibility === 'visible' ?  location.reload() : Game()
+    //pvpm.style.visibility === 'visible' ? Game() : Game()
     option.value === "pvp" ? pvpm.style.visibility = 'visible' : pvaim.style.visibility = 'visible'; // ternary: exampleGame
-
+    option.value === "pvai" ? pvpm.style.visibility = 'hidden' : pvaim.style.visibility = 'hidden';
+    game()
 })
 
 document.getElementById('new-game').addEventListener('click', (event) => {
