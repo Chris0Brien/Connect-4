@@ -10,9 +10,9 @@ window.onload = function(){
 document.getElementById('play').addEventListener('click', (event) => {
     event.preventDefault()
     let option = select.options[select.selectedIndex];
-    option.value === "pvp" ? pvpm.style.visibility = 'visible' : pvaim.style.visibility = 'visible'; // ternary: exampleGame
-    option.value === "pvai" ? pvpm.style.visibility = 'hidden' : pvaim.style.visibility = 'hidden';
-    option.value === "pvp" ? pvpGame() : pvaiGame()
+    option.value === "pvp" ? pvpm.style.visibility = 'visible' : null //pvaim.style.visibility = 'visible'; // ternary: exampleGame
+    // option.value === "pvai" ? pvpm.style.visibility = 'hidden' : pvaim.style.visibility = 'hidden';
+    option.value === "pvp" ? pvpGame() : null //pvaiGame()
 })
 
 document.getElementById('new-game').addEventListener('click', (event) => {

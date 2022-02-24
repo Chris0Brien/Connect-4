@@ -1,41 +1,58 @@
 body {
-    text-align: center;
-  }
-  
-  #connect4 {
-    background-color: blue;
-    display: inline-block;
-  }
-  
-  .col {
-    width: 70px;
-    height: 70px;
-    display: inline-block;
-    background-color: white;
-    border-radius: 50%;
-    margin: 5px;
-  }
-  
-  .col.empty {
-    cursor: pointer;
-  }
-  
-  .next-red {
-    background-color: rgba(255, 0, 0, 0.555);
-  }
-  
-  .next-black {
-    background-color: rgba(0, 0, 0, 0.589);
-  }
-  
-  .col.red {
-    background-color: red;
-  }
-  
-  .col.black {
-    background-color: black;
-  }
+  text-align: center;
+  background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
+}
 
-  .col.ai {
-    background-color: black;
-  }
+h1 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+#connect4 {
+  background-color: rgb(51, 10, 105);
+  display: inline-block;
+}
+
+.col {
+  width: 70px;
+  height: 70px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.col.empty {
+  cursor: pointer;
+}
+
+.next-red {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.next-black {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.col.red {
+  background-color: rgb(255, 0, 0);
+}
+
+.col.black {
+  background-color: rgb(0, 0, 0);
+}
+
+.col.ai {
+  background-color: black;
+}
