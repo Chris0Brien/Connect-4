@@ -36,8 +36,6 @@ body {
     background-color: black;
   }
 
-  #pvai-mode {
-    position: absolute;
-    top: 6.2em;
-    left: 40%;
+  .col.ai {
+    background-color: black;
   }

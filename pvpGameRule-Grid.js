@@ -1,5 +1,5 @@
 // $ names means that jquery is being used in it
-class Connect4 { // build up Grid
+class PvPConnect4 { // build up Grid
   constructor(selector) {
     this.ROWS = 6;
     this.COLS = 7;
@@ -11,7 +11,7 @@ class Connect4 { // build up Grid
     this.setupEventListeners();
   }
 
-  createGrid() { // filling the grid; if time swap rows and col
+  createGrid() { // filling the grid, makes rows and loops over the rows to make cols; if time swap rows and col
     const $board = $(this.selector);
     $board.empty();
     this.isGameOver = false;
@@ -29,7 +29,7 @@ class Connect4 { // build up Grid
     }
   }
 
-  setupEventListeners() {
+  setupEventListeners() { // hover over cols and finds last availble cell
     const $board = $(this.selector);
     const that = this;
 
@@ -44,7 +44,7 @@ class Connect4 { // build up Grid
       return null;
     }
 
-// 
+
     $board.on("mouseenter", ".col.empty", function () {
       if (that.isGameOver) return;
       const col = $(this).data("col");
@@ -114,11 +114,11 @@ class Connect4 { // build up Grid
     }
 
     function checkDiagonalBLtoTR() {
-      return checkWin({ x: 1, y: -1 }, { x: 1, y: 1 });
+      return checkWin({ x: -1, y: 1 }, { x: 1, y: 1 });
     }
 
     function checkDiagonalTLtoBR() {
-      return checkWin({ x: 1, y: 1 }, { x: -1, y: -1 });
+      return checkWin({ x: 1, y: -1 }, { x: -1, y: 1 });
     }
 
     function checkVerticals() {
