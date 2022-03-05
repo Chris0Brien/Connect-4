@@ -55,7 +55,7 @@ class PvPConnect4 { // build up Grid
       $(".col").removeClass(`next-${that.player}`);
     });
 
-    $board.on("click", ".col.empty", function () {
+    $board.on("click", ".col.empty", function () { // permenatly change class on click
       if (that.isGameOver) return;
       const col = $(this).data("col");
       const $lastEmptyCell = findLastEmptyCell(col);
