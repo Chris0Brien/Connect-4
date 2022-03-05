@@ -10,15 +10,3 @@ function pvpGame() {
       pvpconnect4.restart();
     })
   };
-
-function pvaiGame() {
-  const pvaiconnect4 = new PvAIConnect4('#connect4')
-
-  pvaiconnect4.onPlayerMove = function() {
-    $('#player').text(pvaiconnect4.player);
-  }
-  
-  $('#restart').click(function() {
-    pvaiconnect4.restart();
-  })
-};
