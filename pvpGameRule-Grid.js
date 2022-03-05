@@ -1,4 +1,4 @@
-// $ names means that jquery is being used in it
+// $ names means that jquery is being used in it, saw a person talk about doing that to know when your using j-query and thought it would be helpful
 class PvPConnect4 { // build up Grid
   constructor(selector) {
     this.ROWS = 6;
@@ -29,11 +29,11 @@ class PvPConnect4 { // build up Grid
     }
   }
 
-  setupEventListeners() { // hover over cols and finds last availble cell
+  setupEventListeners() { // location of all event listeners
     const $board = $(this.selector);
     const that = this;
 
-    function findLastEmptyCell(col) {
+    function findLastEmptyCell(col) { // hover over cols and finds last availble cell
       const cells = $(`.col[data-col='${col}']`);
       for (let i = cells.length - 1; i >= 0; i--) {
         const $cell = $(cells[i]);
@@ -44,15 +44,14 @@ class PvPConnect4 { // build up Grid
       return null;
     }
 
-
-    $board.on("mouseenter", ".col.empty", function () {
+    $board.on("mouseenter", ".col.empty", function () { //when mouse enters a col change class
       if (that.isGameOver) return;
       const col = $(this).data("col");
       const $lastEmptyCell = findLastEmptyCell(col);
       $lastEmptyCell.addClass(`next-${that.player}`);
     });
 
-    $board.on("mouseleave", ".col", function () {
+    $board.on("mouseleave", ".col", function () { // when mouse leaves col return the old class
       $(".col").removeClass(`next-${that.player}`);
     });
 
@@ -88,7 +87,7 @@ class PvPConnect4 { // build up Grid
       return $(`.col[data-row='${x}'][data-col='${y}']`);
     }
 
-    function checkWinDirection(direction) {
+    function checkWinDirection(direction) { // rules for checking the directions
       let total = 0;
       let x = row + direction.x;
       let y = col + direction.y;
@@ -108,8 +107,8 @@ class PvPConnect4 { // build up Grid
       return total;
     }
 
-    function checkWin(directionA, directionB) {
-      const total = 1 + checkWinDirection(directionA) + checkWinDirection(directionB);
+    function checkWin(directionA, directionB) { // had bug but is now fixed, or cant find a bug anymore
+      const total = 1 + checkWinDirection(directionA) + checkWinDirection(directionB); // checks the directions for a win
       return  (total >= 4) ? that.player : null;
     }
 
